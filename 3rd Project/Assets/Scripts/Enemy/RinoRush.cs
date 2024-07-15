@@ -21,7 +21,7 @@ public class RinoRush : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            FrogMove.me.SetActive(false);
+            //FrogMove.me.SetActive(false);
         }
         if (collision.gameObject.CompareTag("wall"))
         {
@@ -34,7 +34,7 @@ public class RinoRush : MonoBehaviour
         if(OnPlayerInside)
         {
             while(!IsWall)
-                rb.AddForce(Vector2.right * transform.localScale.x * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
+                rb.AddForce(Vector2.right * transform.localScale.x/6 * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
         }
     }
 }

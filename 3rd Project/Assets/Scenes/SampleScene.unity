@@ -133,11 +133,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5940110185864662540, guid: 596560afc615bab499d63876eaec3aa4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.92
+      value: -2.78
       objectReference: {fileID: 0}
     - target: {fileID: 5940110185864662540, guid: 596560afc615bab499d63876eaec3aa4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.95
+      value: -1.71
       objectReference: {fileID: 0}
     - target: {fileID: 5940110185864662540, guid: 596560afc615bab499d63876eaec3aa4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -550,6 +550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 889711383}
   - component: {fileID: 889711384}
+  - component: {fileID: 889711385}
   m_Layer: 0
   m_Name: IsPlayerChack
   m_TagString: Untagged
@@ -601,7 +602,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.6, y: -0.03244497}
@@ -617,6 +618,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.26488996}
   m_EdgeRadius: 0
+--- !u!114 &889711385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889711382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66362b4e744d74549b8ab5479c0c8d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1426969807 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8892610073319761263, guid: 596560afc615bab499d63876eaec3aa4, type: 3}
@@ -800,6 +813,7 @@ GameObject:
   - component: {fileID: 1981909562}
   - component: {fileID: 1981909566}
   - component: {fileID: 1981909565}
+  - component: {fileID: 1981909567}
   m_Layer: 0
   m_Name: Rino
   m_TagString: Untagged
@@ -889,7 +903,7 @@ Transform:
   m_GameObject: {fileID: 1981909561}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.4, y: -2.75, z: 0}
+  m_LocalPosition: {x: 12.03, y: -1.57, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -968,6 +982,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4784497, y: 0.2863309}
   m_EdgeRadius: 0
+--- !u!114 &1981909567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981909561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a767a30770faf80418221006050739fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

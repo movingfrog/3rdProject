@@ -1,11 +1,9 @@
 using UnityEngine;
 
-public class FrogMove : MonoBehaviour
+public class CrazeHumanMove : MonoBehaviour
 {
     //변수 선언
     Rigidbody2D rb;
-
-    public static GameObject me;
 
     [SerializeField]
     private float moveSpeed;
@@ -21,18 +19,17 @@ public class FrogMove : MonoBehaviour
     //초기화
     private void Start()
     {
-        me = this.gameObject;
         rb = GetComponent<Rigidbody2D>();
     }
 
-    
+
     private void Update()
     {
         //점프코드 호출
         Jump();
     }
 
-    
+
     private void FixedUpdate()
     {
         float speed = moveSpeed * Time.deltaTime;
@@ -40,20 +37,19 @@ public class FrogMove : MonoBehaviour
         //점프를 할 수 있게해주는 코드
         IsGround = Physics.Raycast(transform.position, Vector3.down, groundChackDistance, groundLayer);
         //점프할시에 좌우로 움직일 수 있는 코드
-        if (isJump)
-        {
+        
             SpriteRenderer sprite = GetComponent<SpriteRenderer>();
-            if (Input.GetAxisRaw("Horizontal") > 0)
+            if (Input.GetKey(KeyCode.RightShift))
             {
                 sprite.flipX = false;
-                rb.AddForce(Vector2.right * speed, ForceMode2D.Impulse);    
+                rb.AddForce(Vector2.right * speed, ForceMode2D.Impulse);
             }
-            else if(Input.GetAxisRaw("Horizontal") < 0)
+            else if (Input.GetKey(KeyCode.LeftShift))
             {
                 sprite.flipX = true;
                 rb.AddForce(Vector2.left * speed, ForceMode2D.Impulse);
             }
-        }
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -61,7 +57,6 @@ public class FrogMove : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "ground":
-            case "wall":
                 isJump = false;
                 break;
         }
@@ -69,7 +64,7 @@ public class FrogMove : MonoBehaviour
     public void Jump()
     {
         //점프 코드
-        if (Input.GetKeyDown(KeyCode.Space) && !IsGround && !isJump)
+        if ((Input.GetKeyDown(KeyCode.LeftAlt)||Input.GetKeyDown(KeyCode.RightAlt)) && !IsGround && !isJump)
         {
             Debug.Log("aaffas");
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);

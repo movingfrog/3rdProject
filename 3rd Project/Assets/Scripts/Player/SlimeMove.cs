@@ -21,7 +21,8 @@ public class PlyaerMove : MonoBehaviour
 
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
-            rb.MovePosition(transform.position + new Vector3(h*moveSpeed * Time.deltaTime, 0, 0));
+            //rb.MovePosition(transform.position + new Vector3(h*moveSpeed * Time.deltaTime, 0, 0));
+            rb.AddForce(new Vector2(h * moveSpeed * Time.deltaTime, 0), ForceMode2D.Impulse);
         }
     }
 }

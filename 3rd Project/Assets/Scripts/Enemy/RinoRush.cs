@@ -21,20 +21,31 @@ public class RinoRush : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            //FrogMove.me.SetActive(false);
+            FrogMove.me.SetActive(false);
         }
         if (collision.gameObject.CompareTag("wall"))
         {
             IsWall = true;
+            OnPlayerInside = false;
             gameObject.SetActive(false);
+            Invoke("Spawn", 1f);
         }
     }
+
+    void Spawn()
+    {
+        transform.position = vec;
+        gameObject.SetActive(true);
+    }
+
     private void FixedUpdate()
     {
-        if(OnPlayerInside)
+        if (OnPlayerInside)
         {
-            while(!IsWall)
-                rb.AddForce(Vector2.right * transform.localScale.x/6 * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            if (transform.localScale.x >= 0)
+                rb.AddForce(Vector2.right * -moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            else if (transform.localScale.x < 0)
+                rb.AddForce(Vector2.left * -moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
         }
     }
 }

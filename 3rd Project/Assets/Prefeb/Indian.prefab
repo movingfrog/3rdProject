@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 2475444467768444719}
   - component: {fileID: 8133770221568539235}
   - component: {fileID: 8309060979084572054}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Indian
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

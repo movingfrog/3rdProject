@@ -31,6 +31,8 @@ public class ChickenMove : MonoBehaviour
     {
         if (IsPlyaer)
         {
+            SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+            sprite.flipX = chackPlayer.i == 1 ? true : false;
             rb.velocity += new Vector2(speedPower * chackPlayer.i * Time.deltaTime, 0);
             speedPower += 7.5f * Time.deltaTime;
             if(speedPower >= maxSpeed)

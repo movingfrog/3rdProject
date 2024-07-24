@@ -26,13 +26,6 @@ public class BeeDown : MonoBehaviour
         IsDown = false;
         rb = GetComponent<Rigidbody2D>();
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.SetActive(false);
-        }
-    }
     private void FixedUpdate()
     {
         if(IsPlayerChack)

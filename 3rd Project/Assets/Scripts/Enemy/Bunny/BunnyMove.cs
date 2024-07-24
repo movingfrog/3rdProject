@@ -29,7 +29,6 @@ public class BunnyMove : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             gameObject.SetActive(false);
-            collision.gameObject.SetActive(false);
         }
         else if (collision.gameObject.CompareTag("wall"))
         {

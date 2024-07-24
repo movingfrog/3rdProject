@@ -334,6 +334,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime
       objectReference: {fileID: 0}
+    - target: {fileID: 5929184474540882934, guid: 6cbda9044730e134dbf9419700d89afe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7908565761821383380, guid: 6cbda9044730e134dbf9419700d89afe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.3706522
@@ -390,6 +394,10 @@ PrefabInstance:
     - target: {fileID: 697115293493304737, guid: 85492bb1985be3c43b84f7dc90434a4d, type: 3}
       propertyPath: m_Name
       value: Indian
+      objectReference: {fileID: 0}
+    - target: {fileID: 697115293493304737, guid: 85492bb1985be3c43b84f7dc90434a4d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6095095063845122779, guid: 85492bb1985be3c43b84f7dc90434a4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -839,6 +847,10 @@ PrefabInstance:
     - target: {fileID: 2591530963299613491, guid: 5996bb0642546914eb7a97e57637dd99, type: 3}
       propertyPath: m_Name
       value: CrazeHuman
+      objectReference: {fileID: 0}
+    - target: {fileID: 2591530963299613491, guid: 5996bb0642546914eb7a97e57637dd99, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2881908622959085988, guid: 5996bb0642546914eb7a97e57637dd99, type: 3}
       propertyPath: m_LocalPosition.x

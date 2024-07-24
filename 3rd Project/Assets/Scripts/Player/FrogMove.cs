@@ -4,6 +4,7 @@ public class FrogMove : MonoBehaviour
 {
     //변수 선언
     Rigidbody2D rb;
+    Animator ani;
 
     public static GameObject me;
 
@@ -21,6 +22,7 @@ public class FrogMove : MonoBehaviour
     //초기화
     private void Start()
     {
+        ani = GetComponent<Animator>();
         me = this.gameObject;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -30,6 +32,10 @@ public class FrogMove : MonoBehaviour
     {
         //점프코드 호출
         Jump();
+        if(rb.velocity.y < 0)
+        {
+            ani.SetTrigger("IsFalling");
+        }
     }
 
     
@@ -63,6 +69,11 @@ public class FrogMove : MonoBehaviour
             case "ground":
             case "wall":
                 isJump = false;
+                ani.SetBool("IsJumping", false);
+                ani.SetBool("IsFalling", false);
+                break;
+            case "Enemy":
+                ani.SetTrigger("IsDamaged");
                 break;
         }
     }
@@ -71,6 +82,7 @@ public class FrogMove : MonoBehaviour
         //점프 코드
         if (Input.GetKeyDown(KeyCode.Space) && !IsGround && !isJump)
         {
+            ani.SetBool("IsJumping", true);
             Debug.Log("aaffas");
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isJump = true;

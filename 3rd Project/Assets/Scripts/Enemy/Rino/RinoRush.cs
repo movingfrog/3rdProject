@@ -19,10 +19,6 @@ public class RinoRush : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            FrogMove.me.SetActive(false);
-        }
         if (collision.gameObject.CompareTag("wall"))
         {
             IsWall = true;

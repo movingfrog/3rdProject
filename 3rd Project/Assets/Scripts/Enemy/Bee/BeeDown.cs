@@ -6,6 +6,7 @@ using UnityEngine;
 public class BeeDown : MonoBehaviour
 {
     Rigidbody2D rb;
+    Animator ani;
     Vector3 vec;
     [SerializeField]
     private float fallTime;
@@ -21,6 +22,7 @@ public class BeeDown : MonoBehaviour
     }
     private void Start()
     {
+        ani = GetComponent<Animator>();
         vec = transform.position;
         Debug.Log(vec);
         IsDown = false;
@@ -30,6 +32,7 @@ public class BeeDown : MonoBehaviour
     {
         if(IsPlayerChack)
         {
+            ani.SetInteger("IsDown", 1);
             rb.gravityScale = 0.01f;
             rb.AddForce(Vector2.down * 0.3f, ForceMode2D.Impulse);
             IsDown = true;
@@ -55,10 +58,11 @@ public class BeeDown : MonoBehaviour
         { 
             PlayerChack.instance.gameObject.SetActive(true);
             IsUp = false;
+            ani.SetInteger("IsDown", 2);
         }
         else if (transform.position.y != vec.y && IsUp)
         {
-            
+            ani.SetInteger("IsDown", 0);
             transform.position = Vector2.Lerp(transform.position, vec, Time.deltaTime);
         }
     }

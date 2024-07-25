@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChickenMove : MonoBehaviour
 {
     Rigidbody2D rb;
+    Animator ani;
     public static ChickenMove Instance;
     [SerializeField]
     private float speedPower;
@@ -16,6 +17,7 @@ public class ChickenMove : MonoBehaviour
     private void Start()
     {
         Instance = this;
+        ani = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -24,6 +26,7 @@ public class ChickenMove : MonoBehaviour
     {
         if (IsPlyaer)
         {
+            ani.SetTrigger("ChickenRun");
             SpriteRenderer sprite = GetComponent<SpriteRenderer>();
             sprite.flipX = chackPlayer.i == 1 ? true : false;
             rb.velocity += new Vector2(speedPower * chackPlayer.i * Time.deltaTime, 0);
@@ -31,8 +34,13 @@ public class ChickenMove : MonoBehaviour
             if(speedPower >= maxSpeed)
             {
                 speedPower = maxSpeed;
-                Destroy(gameObject, 5f);
+                Invoke("IsDie", 5f);
             }
         }
+    }
+    private void IsDie()
+    {
+        ani.SetTrigger("Die");
+        Destroy(gameObject, 1f);
     }
 }

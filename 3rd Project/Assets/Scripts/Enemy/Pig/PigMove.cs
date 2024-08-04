@@ -5,6 +5,7 @@ using UnityEngine;
 public class PigMove : MonoBehaviour
 {
     Rigidbody2D rb;
+    public static Animator ani;
     [SerializeField]
     private float minSpeed;
     public static float maxSpeed;
@@ -12,6 +13,7 @@ public class PigMove : MonoBehaviour
 
     private void Start()
     {
+        ani = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
     private void OnCollisionEnter2D(Collision2D collision)

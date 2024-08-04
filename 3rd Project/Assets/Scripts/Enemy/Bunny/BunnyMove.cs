@@ -6,6 +6,8 @@ public class BunnyMove : MonoBehaviour
 {
     public static BunnyMove Instance;
     Rigidbody2D rb;
+    public Animator ani;
+    Vector3 vec;
     [SerializeField]
     private float speedPower;
     [SerializeField]
@@ -16,6 +18,8 @@ public class BunnyMove : MonoBehaviour
 
     private void Start()
     {
+        vec = transform.position;
+        ani = GetComponent<Animator>();
         Instance = this;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -28,13 +32,25 @@ public class BunnyMove : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Player"))
         {
-            gameObject.SetActive(false);
+            ani.SetTrigger("IsDie");
+            Destroy(gameObject, 2f);
         }
         else if (collision.gameObject.CompareTag("wall"))
         {
-            BunnyChack.Spawn = true;
-            gameObject.SetActive(false);
+            ani.SetTrigger("IsDie");
+            Invoke("False", 1f);
+            Invoke("respown", 3f);
         }
+    }
+
+    public void False()
+    {
+        gameObject.SetActive(false);
+    }
+    public void respown()
+    {
+        BunnyChack.Spawn = true;
+        transform.position = vec;
     }
 
     private void FixedUpdate()

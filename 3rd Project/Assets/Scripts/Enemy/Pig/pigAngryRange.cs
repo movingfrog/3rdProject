@@ -14,13 +14,15 @@ public class pigAngryRange : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PigMove.maxSpeed = 10;
+            PigMove.ani.SetBool("IsAngry", true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {   
-            PigMove.maxSpeed = 0; 
+            PigMove.maxSpeed = 0;
+            PigMove.ani.SetBool("IsAngry", false);
         }
     }
 }

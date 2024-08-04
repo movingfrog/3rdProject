@@ -7,13 +7,14 @@ public class RinoRush : MonoBehaviour
 {
     private Vector3 vec;
     Rigidbody2D rb;
+    Animator ani;
     [SerializeField]
     private float moveSpeed;
     public static bool OnPlayerInside = false;
-    bool IsWall = false;
 
     private void Awake()
     {
+        ani = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         vec = new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
@@ -21,16 +22,17 @@ public class RinoRush : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("wall"))
         {
-            IsWall = true;
+            ani.SetBool("IsRinoWall", true);
             OnPlayerInside = false;
-            gameObject.SetActive(false);
             Invoke("Spawn", 1f);
         }
     }
 
     void Spawn()
     {
+        ani.SetBool("IsRinoWall", false);
         transform.position = vec;
+        gameObject.SetActive(false);
         gameObject.SetActive(true);
     }
 
@@ -38,6 +40,7 @@ public class RinoRush : MonoBehaviour
     {
         if (OnPlayerInside)
         {
+            ani.SetTrigger("IsPlayer");
             if (transform.localScale.x >= 0)
                 rb.AddForce(Vector2.right * -moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
             else if (transform.localScale.x < 0)

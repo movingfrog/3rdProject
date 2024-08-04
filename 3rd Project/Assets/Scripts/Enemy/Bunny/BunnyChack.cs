@@ -15,6 +15,7 @@ public class BunnyChack : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && Spawn)
         {
             Spawn = false;
+            BunnyMove.Instance.ani.SetTrigger("IsPlayer");
             f = collision.gameObject.transform.position.x - BunnyMove.Instance.transform.position.x < 0 ? -1 : 1; 
             BunnyMove.IsPlayer = true;
 

@@ -20,11 +20,11 @@ public class RinoRush : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("wall"))
+        if (collision.gameObject.CompareTag("wall")||collision.gameObject.CompareTag("FakeGround"))
         {
             ani.SetBool("IsRinoWall", true);
             OnPlayerInside = false;
-            Invoke("Spawn", 1f);
+            Invoke("Spawn", 3f);
         }
     }
 

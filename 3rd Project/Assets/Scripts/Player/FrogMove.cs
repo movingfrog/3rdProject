@@ -37,6 +37,7 @@ public class FrogMove : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Space))
         {
+            Debug.Log("adsfsfafs");
             jumpPower += UpingJumpPower * Time.deltaTime;
         }
         if(jumpPower >= maxJumpPower)
@@ -45,8 +46,6 @@ public class FrogMove : MonoBehaviour
         }
         //점프코드 호출
         Jump();
-        if (Input.GetKey(KeyCode.Space))
-            jumpPower = 0;
         if(rb.velocity.y < 0)
         {
             ani.SetTrigger("IsFalling");
@@ -82,8 +81,9 @@ public class FrogMove : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "ground":
-            case "wall":
+            case "FakeGround":
                 isJump = false;
+                jumpPower = 0;
                 ani.SetBool("IsJumping", false);
                 ani.SetBool("IsFalling", false);
                 break;
@@ -95,7 +95,7 @@ public class FrogMove : MonoBehaviour
     public void Jump()
     {
         //점프 코드
-        if (Input.GetKeyUp(KeyCode.Space) && !IsGround && !isJump)
+        if (Input.GetKeyUp(KeyCode.Space) && !IsGround && !isJump&&jumpPower >= 1.5f)
         {
             ani.SetBool("IsJumping", true);
             Debug.Log("aaffas");

@@ -11,6 +11,10 @@ public class FrogMove : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
     [SerializeField]
+    private float maxJumpPower;
+    [SerializeField]
+    private float UpingJumpPower;
+    [SerializeField]
     private float jumpPower;
 
     bool IsGround = false;
@@ -22,6 +26,7 @@ public class FrogMove : MonoBehaviour
     //초기화
     private void Start()
     {
+        maxJumpPower = 7.5f;
         ani = GetComponent<Animator>();
         me = this.gameObject;
         rb = GetComponent<Rigidbody2D>();
@@ -30,8 +35,18 @@ public class FrogMove : MonoBehaviour
     
     private void Update()
     {
+        if(Input.GetKey(KeyCode.Space))
+        {
+            jumpPower += UpingJumpPower * Time.deltaTime;
+        }
+        if(jumpPower >= maxJumpPower)
+        {
+            jumpPower = maxJumpPower;
+        }
         //점프코드 호출
         Jump();
+        if (Input.GetKey(KeyCode.Space))
+            jumpPower = 0;
         if(rb.velocity.y < 0)
         {
             ani.SetTrigger("IsFalling");
@@ -80,7 +95,7 @@ public class FrogMove : MonoBehaviour
     public void Jump()
     {
         //점프 코드
-        if (Input.GetKeyDown(KeyCode.Space) && !IsGround && !isJump)
+        if (Input.GetKeyUp(KeyCode.Space) && !IsGround && !isJump)
         {
             ani.SetBool("IsJumping", true);
             Debug.Log("aaffas");

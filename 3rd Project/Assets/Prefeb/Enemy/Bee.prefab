@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 824102495413701142}
   - component: {fileID: 2480544865247809370}
   - component: {fileID: 7169669361594469135}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.32, y: 5.74, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7853912649643807250}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 7853912649643807250}
   - component: {fileID: 7914472934096896367}
   - component: {fileID: 8372849269535014234}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerChack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

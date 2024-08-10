@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3127647815309571607}
   - component: {fileID: 2355442182043266252}
   - component: {fileID: 4846385774815836510}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AngryChicken
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.4, y: -2.98, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2775914663241070506}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 2775914663241070506}
   - component: {fileID: 407053039582545362}
   - component: {fileID: 2531682358916272408}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerChack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,11 +1,12 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class PlyaerMove : MonoBehaviour
 {
     public float moveSpeed;
     Rigidbody2D rb;
     Animator ani;
+    private bool IsChange = false;
     void Start()
     {
         ani = GetComponent<Animator>();
@@ -15,6 +16,31 @@ public class PlyaerMove : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)&& !IsChange)
+        {
+            IsChange = true;
+            rb.gravityScale *= -1;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            IsChange = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("DieZone"))
+        {
+            SceneManager.LoadScene("SecondWorld");
+        }
     }
 
     void Move()

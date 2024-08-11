@@ -8,6 +8,7 @@ TagManager:
   - wall
   - Enemy
   - FakeGround
+  - DieZone
   layers:
   - Default
   - TransparentFX

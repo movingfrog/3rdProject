@@ -4,6 +4,11 @@ public class SilverKey : MonoBehaviour
 {
     public static bool Key = false;
 
+    private void Start()
+    {
+        Key = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class End : MonoBehaviour
+public class DarkKey : MonoBehaviour
 {
-    public static int count = 0;
+    public static bool darkKey;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            count++;
-            SceneManager.LoadScene("MapChoceScene");
+            Destroy(gameObject);
         }
+    }
+    private void OnDestroy()
+    {
+        darkKey = true;
     }
 }

@@ -12,4 +12,19 @@ public class MapManager : MonoBehaviour
     {
         SceneManager.LoadScene("FirstWorld");
     }
+
+    public void SecondMap()
+    {
+        SceneManager.LoadScene("SecondWorld");
+    }
+
+    public void ThirdMap()
+    {
+        SceneManager.LoadScene("ThirdWorld");
+    }
+
+    public void FourthMap()
+    {
+        SceneManager.LoadScene("FourthWorld");
+    }
 }

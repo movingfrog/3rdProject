@@ -10,6 +10,9 @@ public class CrazeHumanMove : MonoBehaviour
     private float moveSpeed;
     [SerializeField]
     private float jumpPower;
+    private int FlipY;
+
+    public GameObject UI;
 
     bool IsGround = false;
     bool isJump = false;
@@ -22,6 +25,7 @@ public class CrazeHumanMove : MonoBehaviour
     {
         ani = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        FlipY = 1;
     }
 
 
@@ -57,6 +61,26 @@ public class CrazeHumanMove : MonoBehaviour
             ani.SetBool("IsRun", false);
         
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        switch (collision.gameObject.tag)
+        {
+            case "BG1":
+            case "BG2":
+                rb.gravityScale = 1;
+                FlipY = 1;
+                sprite.flipY = false;
+                break;
+            case "BG3":
+            case "BG4":
+                rb.gravityScale = -1;
+                FlipY = -1;
+                sprite.flipY = true;
+                break;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //땅위에 있는지 확인해주는 코드
@@ -69,8 +93,13 @@ public class CrazeHumanMove : MonoBehaviour
                 break;
             case "Enemy":
                 ani.SetTrigger("IsDamaged");
+                Destroy(gameObject, 3f);
                 break;
         }
+    }
+    private void OnDestroy()
+    {
+        UI.SetActive(true);
     }
     public void Jump()
     {
@@ -79,7 +108,7 @@ public class CrazeHumanMove : MonoBehaviour
         {
             ani.SetBool("IsJumping", true);
             Debug.Log("aaffas");
-            rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * FlipY * jumpPower, ForceMode2D.Impulse);
             isJump = true;
         }
         else if(rb.velocity.y < 0)

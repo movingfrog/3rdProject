@@ -9,6 +9,10 @@ TagManager:
   - Enemy
   - FakeGround
   - DieZone
+  - BG1
+  - BG2
+  - BG3
+  - BG4
   layers:
   - Default
   - TransparentFX

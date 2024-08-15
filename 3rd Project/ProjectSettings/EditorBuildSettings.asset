@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: c03ec417bacb48840a2a07a72be16eda
+  - enabled: 1
     path: Assets/Scenes/FirstWorld.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -15,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SecondWorld.unity
     guid: 1f307da95e362ae439d37016cf0d0fc6
   - enabled: 1
-    path: Assets/Scenes/StartScene.unity
-    guid: c03ec417bacb48840a2a07a72be16eda
+    path: Assets/Scenes/ThirdWorld.unity
+    guid: c74efc2bfa4646d4090c80d477e5764d
+  - enabled: 1
+    path: Assets/Scenes/FourthWorld.unity
+    guid: cc89c73bfb2bbca4e8ec3aaeba07b99c
   m_configObjects: {}

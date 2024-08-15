@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
-  jumpPower: 10
+  jumpPower: 8
 --- !u!70 &4287131899084542644
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

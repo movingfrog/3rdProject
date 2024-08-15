@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class Cameras : MonoBehaviour
 {
     Transform game;
+    public Camera cam;
     public float speed;
 
     private void Awake()
     {
+        cam = GetComponent<Camera>();
         game = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 public class IndianMove : MonoBehaviour
 {
     public GameObject IsStay;
+    public GameObject MenuUI;
 
     Rigidbody2D rb;
     Animator ani;
@@ -24,9 +25,11 @@ public class IndianMove : MonoBehaviour
         ani = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
+
     private void Start()
     {
         Walk();
+        MenuUI.SetActive(false);
     }
     private void Update()
     {
@@ -54,6 +57,11 @@ public class IndianMove : MonoBehaviour
         Debug.Log("2");
         IsStay.SetActive(false);
         Invoke("Stay", 3.0f);
+    }
+
+    private void OnDestroy()
+    {
+        MenuUI.gameObject.SetActive(true);
     }
 
     private void FixedUpdate()

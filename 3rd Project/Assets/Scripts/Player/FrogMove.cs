@@ -7,6 +7,7 @@ public class FrogMove : MonoBehaviour
     Animator ani;
 
     public static GameObject me;
+    public GameObject UI;
 
     [SerializeField]
     private float moveSpeed;
@@ -75,6 +76,10 @@ public class FrogMove : MonoBehaviour
             }
         }
     }
+    private void OnDestroy()
+    {
+        UI.SetActive(true);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //땅위에 있는지 확인해주는 코드
@@ -89,6 +94,7 @@ public class FrogMove : MonoBehaviour
                 break;
             case "Enemy":
                 ani.SetTrigger("IsDamaged");
+                Destroy(gameObject, 3f);
                 break;
         }
     }
